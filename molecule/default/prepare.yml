@@ -1,0 +1,26 @@
+---
+- name: Prepare
+  hosts: all
+
+  roles:
+    - name: 0x0i.systemd
+      vars:
+        unit_config:
+          - name: gitea
+            enabled: true
+            state: started
+            Unit:
+              Description: Git with a cup of tea
+              After: network.target
+            Service:
+              Type: simple
+              Restart: on-failure
+              RestartSec: 2s
+              TimeoutStopSec: 0
+              User: gitea
+              Group: gitea
+              Envrionment: "USER=gitea HOME=/home/gitea GITEA_WORK_DIR=/var/lib/gitea"
+              WorkingDirectory: "/var/lib/gitea"
+              ExecStart: "/usr/local/bin/gitea web --config /etc/gitea/app.ini"
+            Install:
+              WantedBy: multi-user.target

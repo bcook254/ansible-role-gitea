@@ -1,0 +1,13 @@
+---
+gitea_version: 1.18.5
+
+gitea_user: gitea
+gitea_group: gitea
+gitea_daemon: gitea
+
+gitea_home_dir: /home/gitea
+gitea_data_dir: /var/lib/gitea
+gitea_bin_dir: /usr/local/bin
+gitea_config_dir: /etc/gitea
+gitea_packages:
+  - git

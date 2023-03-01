@@ -1,0 +1,34 @@
+---
+dependencies: []
+
+galaxy_info:
+  namespace: bcook254
+  role_name: gitea
+  author: Benjamin Cook
+  description: Gitea installation for Linux.
+
+  license: license (BSD, MIT)
+
+  min_ansible_version: '2.4'
+
+  platforms:
+    - name: EL
+      versions:
+        - 8
+        - 9
+    - name: Fedora
+      versions:
+        - 36
+        - 37
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+        - jammy
+  galaxy_tags:
+    - gitea
+    - git

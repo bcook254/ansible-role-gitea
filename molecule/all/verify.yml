@@ -1,0 +1,26 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+
+  tasks:
+  - name: Check if Gitea is installed.
+    ansible.builtin.stat:
+      path: /usr/local/bin/gitea
+  
+  - name: Verify correct version of Gitea has been installed.
+    ansible.builtin.command: gitea --version
+    args:
+      chdir: /usr/local/bin
+    changed_when: false
+    register: __gitea_version
+    failed_when: __gitea_version is not search('1.18.5')
+  
+  - name: Check if gitea.service is started
+    ansible.builtin.service:
+      name: gitea
+      state: started
+      enabled: true
+    check_mode: true
+    register: service
+    failed_when: (service is changed) or (service is failed)      

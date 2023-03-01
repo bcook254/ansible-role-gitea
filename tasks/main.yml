@@ -1,0 +1,18 @@
+---
+# Setup/install tasks.
+- name: Setup (Debian)
+  ansible.builtin.include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Setup (RedHat)
+  ansible.builtin.include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Install
+  ansible.builtin.include_tasks: install.yml
+  
+- name: Ensure Gitea is started and enabled on boot.
+  ansible.builtin.service:
+    name: "{{ gitea_daemon }}"
+    state: started
+    enabled: true
