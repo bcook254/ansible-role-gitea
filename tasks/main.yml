@@ -10,7 +10,7 @@
 
 - name: Install
   ansible.builtin.include_tasks: install.yml
-  
+
 - name: Ensure Gitea is started and enabled on boot.
   ansible.builtin.service:
     name: "{{ gitea_daemon }}"

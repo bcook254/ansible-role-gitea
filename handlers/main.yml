@@ -1,5 +1,5 @@
 ---
-- name: restart gitea
+- name: restart gitea # noqa name[casing]
   ansible.builtin.service:
     name: "{{ gitea_daemon }}"
     state: restarted
