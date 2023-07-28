@@ -14,7 +14,7 @@
       chdir: /usr/local/bin
     changed_when: false
     register: __gitea_version
-    failed_when: __gitea_version is not search('1.18.5')
+    failed_when: __gitea_version is not search('1.20.1')
   
   - name: Check if gitea.service is started
     ansible.builtin.service:

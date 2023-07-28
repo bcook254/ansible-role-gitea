@@ -15,7 +15,7 @@ Role Variables
 --------------
 A list of available variables is listed below, along with their default vaules.
 
-    gitea_version: 1.18.5
+    gitea_version: 1.20.1
 
 The version of Gitea to install.
 
